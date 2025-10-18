@@ -42,3 +42,13 @@ if __name__ == "__main__":
     print("Winner should be X ->", winner(b))
     print("Moves available ->", moves(b))
     print("Terminal? ->", terminal(b))
+
+def utility(board, me='O', opp='X'):
+    """Score terminal states from AI perspective: +1 win, -1 loss, 0 draw."""
+    w = winner(board)
+    if w == me:
+        return 1
+    elif w == opp:
+        return -1
+    else:
+        return 0  # draw or non-terminal (we only call this at terminal)
